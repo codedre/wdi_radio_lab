@@ -1,0 +1,16 @@
+<h2>{{SongShowViewModel.song.title}}</h2>
+<h3>{{SongShowViewModel.song.artist}}</h3>
+<img data-ng-src={{SongShowViewModel.song.album_art}} alt="" />
+<div class="">
+  <audio controls data-ng-src="{{SongShowViewModel.song.audio_url}}"></audio>
+</div>
+<button data-ng-click="showForm = !showForm">Edit</button>
+<button data-ng-click="SongShowViewModel.delete()">Delete Song</button>
+<form data-ng-show="showForm">
+  <input placeholder="Song Title" data-ng-model="SongShowViewModel.song.title" />
+  <input placeholder="Artist Name" data-ng-model="SongShowViewModel.song.artist" />
+  <input placeholder="Album Art" data-ng-model="SongShowViewModel.song.album_art" />
+  <input placeholder="Audio Url" data-ng-model="SongShowViewModel.song.audio_url" />
+  <input placeholder="Genre" data-ng-model="SongShowViewModel.song.genre" />
+  <button type="button" data-ng-click="SongShowViewModel.update()">Update</button>
+</form>

@@ -1,0 +1,14 @@
+<button data-ng-click="showForm = !showForm">New Song</button>
+<form data-ng-show="showForm">
+  <input placeholder="Song Title" data-ng-model="SongIndexViewModel.song.title" />
+  <input placeholder="Artist Name" data-ng-model="SongIndexViewModel.song.artist" />
+  <input placeholder="Album Art" data-ng-model="SongIndexViewModel.song.album_art" />
+  <input placeholder="Audio Url" data-ng-model="SongIndexViewModel.song.audio_url" />
+  <input placeholder="Genre" data-ng-model="SongIndexViewModel.song.genre" />
+  <button type="button" data-ng-click="SongIndexViewModel.create()">Create</button>
+</form>
+<div data-ng-repeat="song in SongIndexViewModel.songs | orderBy: 'title'">
+  <h3><a data-ui-sref="songShow({id: song.id})">{{song.title}}</a></h3>
+  <p>{{song.artist}}</p>
+  <a data-ui-sref="songShow({id: song.id})"><img data-ng-src="{{song.album_art}}" alt="" /></a>
+</div>
